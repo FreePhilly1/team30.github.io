@@ -14,21 +14,14 @@ To determine the outcome of a game, we will perform binary classification (win v
 To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data compared to other machine learning techniques, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. It is unlikely that neural networks would yield strong results because they would require an enormous amount of (clean) data to perform well.
 ### Proposed Timeline
 ### Contribution Table
-## Contributions
 
 | Contributor                    | Task                                                                     |
 |--------------------------------|--------------------------------------------------------------------------|
 | Alvin Fabrio                   | Created Gantt chart and assisted members in performing other tasks. Prepared the presentation and one of the members that performed it.                                                       |
-| Phillip Kim                    | Jeevan George                                                            |
-| Jerred Chen                    | Christian Lee, Nicholas Tan, Leonard Thong                               |
-| Jun Yi Chuah                   | Christian Lee, Nicholas Tan, Leonard Thong                               |
-| Alexa Hanna                    | Yan Huang                                                                |
-| Contributions                  | Yan Huang                                                                |
-| Presentation                   | Yan Huang and Jeevan George                                              |
-| GitHub Repository Setup        | Nicholas Tan                                                             |
-| GitHub Page Setup              | Nicholas Tan, Jeevan George, and Leonard Thong                           |
-| Review and Edit                | Jeevan George, Christian Lee, Nicholas Tan, Leonard Thong, and Yan Huang |
-| References                     | Jeevan George, Christian Lee, Nicholas Tan, Leonard Thong 
+| Phillip Kim                    | Wrote the introduction/background and problem definition. Researched articles to provide details about the background of the NCAA and statistics of already existing predictive models for the sport. Also one of the members who participated in the presentation of our proposal.                                                 |
+| Jerred Chen                    | Provided the techniques to train our model and methods for data classification. Also went in depth about the details of the potential results, discussing how we will be able to measure the accuracy of our model.                              |
+| Jun Yi Chuah                   | Researched many of the articles used in the background and problem definition. Also assisted with writing the potential results and discussion with the researched articles.                               |
+| Alexa Hanna                    | Created the contribution table and powerpoint presentation. Filled in each member’s contribution within the table and also filled in most of the information within the presentation. Also one of the presenters for the proposal video.                                                             
 
 Member | Contribution
 ------ | ------
