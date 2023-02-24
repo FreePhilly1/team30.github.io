@@ -14,6 +14,22 @@ To determine the outcome of a game, we will perform binary classification (win v
 To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data compared to other machine learning techniques, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. It is unlikely that neural networks would yield strong results because they would require an enormous amount of (clean) data to perform well.
 ### Proposed Timeline
 ### Contribution Table
+## Contributions
+
+| Contributor                    | Task                                                                     |
+|--------------------------------|--------------------------------------------------------------------------|
+| Alvin Fabrio                   | Created Gantt chart and assisted members in performing other tasks. Prepared the presentation and one of the members that performed it.                                                       |
+| Phillip Kim                    | Jeevan George                                                            |
+| Jerred Chen                    | Christian Lee, Nicholas Tan, Leonard Thong                               |
+| Jun Yi Chuah                   | Christian Lee, Nicholas Tan, Leonard Thong                               |
+| Alexa Hanna                    | Yan Huang                                                                |
+| Contributions                  | Yan Huang                                                                |
+| Presentation                   | Yan Huang and Jeevan George                                              |
+| GitHub Repository Setup        | Nicholas Tan                                                             |
+| GitHub Page Setup              | Nicholas Tan, Jeevan George, and Leonard Thong                           |
+| Review and Edit                | Jeevan George, Christian Lee, Nicholas Tan, Leonard Thong, and Yan Huang |
+| References                     | Jeevan George, Christian Lee, Nicholas Tan, Leonard Thong 
+
 Member | Contribution
 ------ | ------
 Alvin Fabrio | Created Gantt chart and assisted members in performing other tasks. Prepared the presentation and one of the members that performed it.
