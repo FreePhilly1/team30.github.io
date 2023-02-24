@@ -13,8 +13,9 @@ To determine the outcome of a game, we will perform binary classification (W vs 
 ### Potential Results and Discussion
 To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. We predict that NN would produce the worst accuracy since they require an enormous amount of (clean) data to perform well.
 ### Proposed Timeline
-[Link to Gantt Chart](GanttChart.xlsx)
-[Test Link](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
+[Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
+
+[View in Repo](GanttChart.xlsx)
 ### Contribution Table
 
 | Contributor                    | Task                                                                     |
