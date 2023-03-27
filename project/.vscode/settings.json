@@ -1,0 +1,7 @@
+{
+    // Put a ruler at 100 characters
+    "editor.rulers": [
+        100
+    ],
+    "ros.distro": "noetic"
+}
