@@ -4,18 +4,28 @@
 National sports, and notably college basketball, has proliferated throughout society and has garnered millions of fans throughout the world. With NCAA basketball becoming a premier form of entertainment, it becomes important to be able to predict these games for several reasons. Bunker and Thabtah [1] analyzed the proficiency of using artificial neural networks to predict outcomes of games and found the average performance of this model to be around 67.5%. Fialho et al. [2] reviewed different models such as artificial neural networks and support vector machines when applied to soccer and suggested that neural networks over the other methods due to their higher accuracy. Jain and Kaur [3] used Caret algorithm to pre-process the data and Boruta algorithm for features selection. The trained SVM then produced accuracy averaging 86%. With these studies in mind, an effective plan for developing a predictive model for NCAA basketball games can be made.
 ### Problem Definition
 With sports betting finding immense popularity in today’s society, it becomes desirable to investigate whether machine learning techniques provide any advantages. A successful predictive model would lead to huge financial implications in a lucrative industry.
+### Data Collection
+TODO: write up data collection process
 ### Methods
+TODO: CHANGE 1/3 to new methods we used\
 To determine the outcome of a game, we will perform binary classification (W vs L) between two teams using the input data of player and team statistics. We can obtain such datasets on various player and team statistics through the NCAA developer API. We will experiment with three methods:
 1. Decision Trees/Ensembles: we will first experiment with a single decision tree to predict the game outcomes. Because decision trees are white-box algorithms, we can then determine if it is necessary to implement decision tree ensembles. We will start with the sci-kit learn package, but if necessary we may transition to a specialized decision tree library such as XGBoost.
 2. Support Vector Machines: we will train an SVM to linearly separate two teams into winner and loser classes. If we determine that nonlinearity may improve the prediction model, we can then apply the kernel trick. We will use sci-kit learn to implement SVM.
 3. Neural Network: we will separate NCAA player/team statistics with their corresponding win or loss into training and testing datasets, where the testing dataset will validate the learned predictor function. We will use a Multilayer Perceptron (MLP) with 3 hidden layers, but we will also experiment with the optimal value of hidden layers. We will implement the MLP with the PyTorch package.
 
-### Potential Results and Discussion
-To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. We predict that NN would produce the worst accuracy since they require an enormous amount of (clean) data to perform well.
+### Results and Discussion
+To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. We predict that NN would produce the worst accuracy since they require an enormous amount of (clean) data to perform well.\
+TODO: add information about preprocessing (PCA)
+
+TODO: add description of models
+
+TODO: add visualization (i.e., confusion matrix)
+
 ### Proposed Timeline
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
 
 [View in Repo](GanttChart.xlsx)
+TODO: update contribution table\
 ### Contribution Table
 
 | Contributor                    | Task                                                                     |
