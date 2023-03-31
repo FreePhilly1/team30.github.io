@@ -18,12 +18,11 @@ We chose to deviate from our initial proposal and build our prediction model usi
 
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
 
-| Models                         | Accuracy                       |
-| ------------------------------ | -------------------------------|
-| Gaussian Naiver Bayes          | 62.7 ± 0.5%      |
-| Logistic Regression            | 62.7 ± 0.6%      |
-| Support Vector Machine         | 62.8 ± 0.4%     |
-
+| Models                         | Accuracy                | F-1 Score   |
+| ------------------------------ | ----------------------- |-------------|
+| Gaussian Naiver Bayes          | 62.7 ± 0.5%             | 63.6 ± 0.6% |
+| Logistic Regression            | 62.7 ± 0.6%             | 63.6 ± 0.7% |
+| Support Vector Machine         | 62.8 ± 0.4%             | 64.7 ± 0.5% |
 
 Based on the data presented in the table, it is evident that all three models have produced comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
