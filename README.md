@@ -10,15 +10,15 @@ The dataset we used for data collection was gathered from the College Basketball
 
 ### Methods
 TODO: CHANGE 1/3 to new methods we used\
-To determine the outcome of a game, we will perform binary classification (W vs L) between two teams using the input data of player and team statistics. We can obtain such datasets on various player and team statistics through the NCAA developer API. We will experiment with three methods:
-1. Decision Trees/Ensembles: we will first experiment with a single decision tree to predict the game outcomes. Because decision trees are white-box algorithms, we can then determine if it is necessary to implement decision tree ensembles. We will start with the sci-kit learn package, but if necessary we may transition to a specialized decision tree library such as XGBoost.
-2. Support Vector Machines: we will train an SVM to linearly separate two teams into winner and loser classes. If we determine that nonlinearity may improve the prediction model, we can then apply the kernel trick. We will use sci-kit learn to implement SVM.
-3. Neural Network: we will separate NCAA player/team statistics with their corresponding win or loss into training and testing datasets, where the testing dataset will validate the learned predictor function. We will use a Multilayer Perceptron (MLP) with 3 hidden layers, but we will also experiment with the optimal value of hidden layers. We will implement the MLP with the PyTorch package.
+To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of tempo-free team statistics. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
+1. Support Vector Machines: we trained an SVM to linearly separate two teams into winner and loser classes. We used sci-kit learn to implement SVM.
+2. Logistic Regression: we used logistic regression by applying a binary classification of wins and losses. We validated the model using k-fold cross validation using k = 5.
+3. Gaussian Naive Bayes: (25 features  -> PCA for the 11 principal components -> retains more than 95% of the variance accuracy of 62.7% ± 0.5%) 
 
 ### Results and Discussion
 
 Preprocessing\
-Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 to 11 components. A visualization of this method can be seen below.\
+Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 25 to 11 components. A visualization of this method can be seen below.\
 [PCA Visualization](/project/pca_visualization.html)
 
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
