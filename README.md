@@ -18,8 +18,8 @@ To determine the outcome of a game, we will perform binary classification (win v
 
 Preprocessing\
 Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 to 11 components. A visualization of this method can be seen below.\
-[PCA Visualization](/project/pca_visualization.html)
-<!-- {% include /project/pca_visualization.html %} -->
+<!-- [PCA Visualization](/project/pca_visualization.html) -->
+{% include /pca_visualization.html %}
 
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
 
