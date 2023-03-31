@@ -16,9 +16,9 @@ To determine the outcome of a game, we will perform binary classification (win v
 
 ### Results and Discussion
 
-Preprocessing\
+**Preprocessing**\
 Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 to 11 components. A visualization of this method can be seen below.\
-<!-- [PCA Visualization](/pca_visualization.html) -->
+<!-- [PCA Visualization](/project/pca_visualization.html) -->
 {% include /pca_visualization.html %}
 
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
@@ -33,21 +33,27 @@ To evaluate our models' performance, we utilized a confusion matrix and obtained
 
 Based on the data presented in the table, it is evident that all three models have produced comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
-Models:\
-Gaussian Naive Bayes\
+<ins>Models</ins>\
+**Gaussian Naive Bayes**\
 Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 62.7 ± 0.5% and an F1 score of 0.636 ± 0.7%. Despite the relatively low values for both metrics, it is noteworthy that the similarity between them indicates that the model is not exhibiting hardly any bias and is performing consistently across all selected features.
 
 ![Image](gnb_cm.png)
 
-Logistic Regression\
+</br>
+
+**Logistic Regression**\
 For our logistic regression model, we saw an accuracy of 62.7 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 63.6 ± 0.7%.
 
 ![Image](lr_cm.png)
 
-Support Vector Machines\
+</br>
+
+**Support Vector Machines**\
 As for SVM, our model has an accuracy of 62.8 ± 0.4% and an F1 score of 64.7 ± 0.5%.
 
 ![Image](svc_cm.png)
+
+</br>
 
 While the team saw an accuracy of around 63%, several improvements can be made for the final report. Currently, the parameters of these models are not tuned meaning improvements can be seen once this is incorporated. Additionally, finding and eliminating additional bias may be possible after identifying other features to consider. Thus, for the final report, the team will look into improving these models and potentially exploring new ones.
 
