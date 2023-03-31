@@ -16,6 +16,11 @@ To determine the outcome of a game, we will perform binary classification (W vs 
 3. Neural Network: we will separate NCAA player/team statistics with their corresponding win or loss into training and testing datasets, where the testing dataset will validate the learned predictor function. We will use a Multilayer Perceptron (MLP) with 3 hidden layers, but we will also experiment with the optimal value of hidden layers. We will implement the MLP with the PyTorch package.
 
 ### Results and Discussion
+
+Preprocessing\
+Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 to 11 components. A visualization of this method can be seen below.\
+[PCA Visualization](/project/pca_visualization.html)
+
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
 
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
