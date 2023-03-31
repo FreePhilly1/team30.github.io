@@ -16,7 +16,7 @@ To determine the outcome of a game, we will perform binary classification (win v
 
 ### Results and Discussion
 
-Preprocessing\
+Preprocessing:\
 Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 25 to 11 components. A visualization of this method can be seen below.\
 [PCA Visualization](/project/pca_visualization.html)
 
@@ -32,10 +32,18 @@ To evaluate our models' performance, we utilized a confusion matrix and obtained
 
 Based on the data presented in the table, it is evident that all three models have produced comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
+Models:\
+Gaussian Naive Bayes\
+Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 62.7 ± 0.5% and an F1 score of 0.636 ± 0.7%. Despite the relatively low values for both metrics, it is noteworthy that the similarity between them indicates that the model is not exhibiting hardly any bias and is performing consistently across all selected features.
 
-TODO: add description of models
+Logistic Regression\
+For our logistic regression model, we saw an accuracy of 62.7 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 63.6 ± 0.7%.
 
-TODO: add visualization (i.e., confusion matrix)
+Support Vector Machines\
+As for SVM, our model has an accuracy of 62.8 ± 0.4% and an F1 score of 64.7 ± 0.5%.
+
+While the team saw an accuracy of around 63%, several improvements can be made for the final report. Currently, the parameters of these models are not tuned meaning improvements can be seen once this is incorporated. Additionally, finding and eliminating additional bias may be possible after identifying other features to consider.
+
 
 ### Proposed Timeline
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
