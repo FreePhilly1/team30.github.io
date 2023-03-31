@@ -14,8 +14,18 @@ To determine the outcome of a game, we will perform binary classification (W vs 
 3. Neural Network: we will separate NCAA player/team statistics with their corresponding win or loss into training and testing datasets, where the testing dataset will validate the learned predictor function. We will use a Multilayer Perceptron (MLP) with 3 hidden layers, but we will also experiment with the optimal value of hidden layers. We will implement the MLP with the PyTorch package.
 
 ### Results and Discussion
-To evaluate each method, we will measure the accuracy and the F1 score. Because decision trees often perform better for tabular data, we expect that decision trees would be the best method for predicting NCAA game outcomes. However, we also expect SVMs to perform well given that they are robust prediction models, and we only intend to use the tools for binary classification which works well for SVMs. We predict that NN would produce the worst accuracy since they require an enormous amount of (clean) data to perform well.\
-TODO: add information about preprocessing (PCA)
+We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
+
+To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
+
+| Models                         | Accuracy                | F-1 Score   |
+|--------------------------------|---------------------------------------|
+| Gaussian Naiver Bayes          | 62.7 ± 0.5%             | 63.6 ± 0.6% |
+| Logistic Regression            | 62.7 ± 0.6%             | 63.6 ± 0.7% |
+| Support Vector Machine         | 62.8 ± 0.4%             | 64.7 ± 0.5% |
+
+Based on the data presented in the table, it is evident that all three models have produced comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
+
 
 TODO: add description of models
 
