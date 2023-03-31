@@ -19,7 +19,7 @@ We chose to deviate from our initial proposal and build our prediction model usi
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
 
 | Models                         | Accuracy                | F-1 Score   |
-|--------------------------------|---------------------------------------|
+| ------------------------------ | ------------------------------------- |
 | Gaussian Naiver Bayes          | 62.7 ± 0.5%             | 63.6 ± 0.6% |
 | Logistic Regression            | 62.7 ± 0.6%             | 63.6 ± 0.7% |
 | Support Vector Machine         | 62.8 ± 0.4%             | 64.7 ± 0.5% |
