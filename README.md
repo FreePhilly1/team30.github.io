@@ -56,7 +56,6 @@ While the team saw an accuracy of around 63%, several improvements can be made f
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
 
 [View in Repo](GanttChart.xlsx)
-TODO: update contribution table\
 ### Contribution Table
 
 | Contributor                    | Task                                                                     |
