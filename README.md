@@ -20,7 +20,11 @@ To determine the outcome of a game, we will perform binary classification (win v
 
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
 
-Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 to 11 components. A visualization of this method can be seen below.
+Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 features to 11 components, where 11 principle components was selected to retain 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
+
+![Image](pca_variance_plot.png)
+
+Below shows the three largest components plotted against the outcomes of the games. It can be seen that although it is difficult to separate the two classes using the first three components, some separation can be observed between the two classes.
 <!-- [PCA Visualization](/pca_visualization.html) -->
 {% include /pca_visualization.html %}
 
