@@ -22,7 +22,7 @@ We chose to deviate from our initial proposal and build our prediction model usi
 
 Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 41 features to 20 components, where 20 principle components was selected to retain at least 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
 
-![Image](pca_variance_plot.png)
+{% include /pca_variance_plot.html %}
 
 Below shows the three largest components plotted against the outcomes of the games. It can be seen that although it is not possible to linearly separate the two classes using the first three components, some separation can be observed between the two classes.
 <!-- [PCA Visualization](/pca_visualization.html) -->
