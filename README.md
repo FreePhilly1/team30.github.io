@@ -11,30 +11,30 @@ The dataset we used for data collection was gathered from the College Basketball
 ![Image](dataset_table.png)
 
 ### Methods
-To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of tempo-free team statistics. We are particularly interested in using tempo-free statistics, which are team statistics that are invariant to the tempo or the rate that a team plays at. Because different team play styles will have varying tempos, it is important to not bias against teams and the rate that they play the game. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
+To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of *tempo-free team statistics*. We are particularly interested in using *tempo-free statistics*, which are team statistics that are invariant to the tempo or the rate that a team plays at. Because different team play styles will have varying tempos, it is important to not bias against teams and the rate that they play the game. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
 1. Gaussian Naive Bayes: we used a Gaussian Naive Bayes model to predict the outcome of a game. We used sci-kit learn to implement Gaussian Naive Bayes.
 2. Logistic Regression: we used logistic regression by applying a binary classification of wins and losses. We used sci-kit learn to implement logistic regression.
 3. Support Vector Machines: we trained an SVM to separate two teams into winner and loser classes. We used sci-kit learn to implement SVM.
 
 ### Results and Discussion
 
-We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). We chose these three models because they are relatively simple to implement and are computationally efficient. Additionally, we chose to use these models because they are well suited for binary classification problems, which is the type of problem we are trying to solve.
+We chose to build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). We chose these three models because they are relatively simple to implement and are computationally efficient. Additionally, we chose to use these models because they are well suited for binary classification problems, which is the type of problem we are trying to solve.
+
+In our midterm checkpoint, we were only using team statistics from team1. However, only relying on only a single team's set of season statistics resulting in a large amount of misclassified games with our initial models. Therefore, we determined that it would be more beneficial to include both team1 and team2 tempo-free statistics as features since the difference between the two teams' statistics will provide more information about the game than the statistics of a single team. We observed approximately a 10% increase in accuracy across all models after including both teams' statistics as features.
+
+In addition, we previously did not normalize our statistics, which negatively impacted the performance of our models since certain features were being heavily weighted when they were unnormalized. Therefore, we used scikit's StandardScaler to normalize our data before performing PCA training our models. We observed about a 2% increase of accuracy improvement after standardizing our features.
 
 Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 41 features to 28 components, where 28 principle components was selected to retain at least 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
 
 {% include /pca_variance_plot.html %}
 
 Below shows the three largest components plotted against the outcomes of the games. It can be seen that although it is not possible to linearly separate the two classes using the first three components, some separation can be observed between the two classes.
-<!-- [PCA Visualization](/pca_visualization.html) -->
+
 {% include /pca_visualization.html %}
 
 To perform further analysis on the PCA components, we included a heat map of the contributed weights of each feature for all components. One thing that is interesting to note is that the first component has large positive weights associated with a predicted metric of how likely a team would beat the average D1 team, which makes sense since it is a general evaluation of how competitive a team would be. Another interesting observation is that PCA10 and PCA11 have large positive weights with if a team was playing home or away, which makes sense since home court advantage is a real phenomenon in sports.
 
 ![Image](pca_analysis.png)
-
-In our midterm checkpoint, we were only using team statistics from team1. However, only relying on only a single team's set of season statistics resulting in a large amount of misclassified games with our initial models. Therefore, we determined that it would be more beneficial to include both team1 and team2 tempo-free statistics as features since the difference between the two teams' statistics will provide more information about the game than the statistics of a single team.
-
-In addition, in our midterm checkpoint, we did not normalize our statistics, which negatively impacted the performance of our models since it is important to normalize the data before training. Therefore, we used scikit's StandardScaler to normalize our data before training our models.
 
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
 
@@ -46,7 +46,8 @@ To evaluate our models' performance, we utilized a confusion matrix and obtained
 
 Based on the data presented in the table, it is evident that all three models have produced somewhat comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
-<ins>Models</ins>
+#### Models
+
 **Gaussian Naive Bayes**\
 Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 74.8 ± 0.5% and an F1 score of 74.9 ± 0.3%. We have attempted to tune the Gaussian Naive Bayes model by adjusting the priors, but we have observed that the model performs best when the priors the default 0.5, 0.5 values. This is because the dataset of predicting game outcomes is balanced, so the default priors are the most suitable for the dataset.
 
