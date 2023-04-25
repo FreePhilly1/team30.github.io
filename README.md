@@ -12,15 +12,15 @@ The dataset we used for data collection was gathered from the College Basketball
 
 ### Methods
 To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of tempo-free team statistics. We are particularly interested in using tempo-free statistics, which are team statistics that are invariant to the tempo or the rate that a team plays at. Because different team play styles will have varying tempos, it is important to not bias against teams and the rate that they play the game. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
-1. Support Vector Machines: we trained an SVM to linearly separate two teams into winner and loser classes. We used sci-kit learn to implement SVM.
+1. Gaussian Naive Bayes: we used a Gaussian Naive Bayes model to predict the outcome of a game. We used sci-kit learn to implement Gaussian Naive Bayes.
 2. Logistic Regression: we used logistic regression by applying a binary classification of wins and losses. We used sci-kit learn to implement logistic regression.
-3. Gaussian Naive Bayes: we used a Gaussian Naive Bayes model to predict the outcome of a game. We used sci-kit learn to implement Gaussian Naive Bayes.
+3. Support Vector Machines: we trained an SVM to separate two teams into winner and loser classes. We used sci-kit learn to implement SVM.
 
 ### Results and Discussion
 
 We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). We chose these three models because they are relatively simple to implement and are computationally efficient. Additionally, we chose to use these models because they are well suited for binary classification problems, which is the type of problem we are trying to solve.
 
-Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 41 features to 20 components, where 20 principle components was selected to retain at least 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
+Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 41 features to 28 components, where 28 principle components was selected to retain at least 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
 
 {% include /pca_variance_plot.html %}
 
@@ -46,7 +46,7 @@ To evaluate our models' performance, we utilized a confusion matrix and obtained
 
 Based on the data presented in the table, it is evident that all three models have produced somewhat comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
-<ins>Models</ins>\73.8 ± 0.3%
+<ins>Models</ins>
 **Gaussian Naive Bayes**\
 Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 74.8 ± 0.5% and an F1 score of 74.9 ± 0.3%. We have attempted to tune the Gaussian Naive Bayes model by adjusting the priors, but we have observed that the model performs best when the priors the default 0.5, 0.5 values. This is because the dataset of predicting game outcomes is balanced, so the default priors are the most suitable for the dataset.
 
