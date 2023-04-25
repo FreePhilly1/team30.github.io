@@ -11,56 +11,58 @@ The dataset we used for data collection was gathered from the College Basketball
 ![Image](dataset_table.png)
 
 ### Methods
-To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of tempo-free team statistics. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
+To determine the outcome of a game, we will perform binary classification (win vs loss) between two teams using the input data of tempo-free team statistics. We are particularly interested in using tempo-free statistics, which are team statistics that are invariant to the tempo or the rate that a team plays at. Because different team play styles will have varying tempos, it is important to not bias against teams and the rate that they play the game. We obtained a Kaggle dataset of the tempo-free team statistics across multiple seasons. Not only are we interested in using the tempo-free statistics as features, but we are also interested in using the outcomes of a team's recently played games. We hypothesize that winning and losing streaks will have a major impact on a teams' morale and the performance for the next game. We will experiment with several different  methods:
 1. Support Vector Machines: we trained an SVM to linearly separate two teams into winner and loser classes. We used sci-kit learn to implement SVM.
-2. Logistic Regression: we used logistic regression by applying a binary classification of wins and losses. We validated the model using k-fold cross validation using k = 5.
-3. Gaussian Naive Bayes: (25 features  -> PCA for the 11 principal components -> retains more than 95% of the variance accuracy of 62.7% ± 0.5%) 
+2. Logistic Regression: we used logistic regression by applying a binary classification of wins and losses. We used sci-kit learn to implement logistic regression.
+3. Gaussian Naive Bayes: we used a Gaussian Naive Bayes model to predict the outcome of a game. We used sci-kit learn to implement Gaussian Naive Bayes.
 
 ### Results and Discussion
 
-We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). While Decision Tree and Neural Networks were rejected as candidate models, they may still be considered in the future to enhance the selection process for the most suitable prediction model.
+We chose to deviate from our initial proposal and build our prediction model using three supervised methods - Gaussian Naive Bayes, Logistic Regression, and Support Vector Machine (SVM). We chose these three models because they are relatively simple to implement and are computationally efficient. Additionally, we chose to use these models because they are well suited for binary classification problems, which is the type of problem we are trying to solve.
 
-Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 24 features to 11 components, where 11 principle components was selected to retain 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
+Before applying the selected models to the dataset, some preprocessing in the form of Principal Component Analysis (PCA) is performed in order to reduce the dimensions of the dataset. This will reduce the computation required during training and will provide data that is easier to work with. We use PCA to reduce the dimensions of our dataset from 41 features to 20 components, where 20 principle components was selected to retain at least 95% of the explained variance in the data. Below shows the explained variance for different number of PCA components.
 
 ![Image](pca_variance_plot.png)
 
-Below shows the three largest components plotted against the outcomes of the games. It can be seen that although it is difficult to separate the two classes using the first three components, some separation can be observed between the two classes.
+Below shows the three largest components plotted against the outcomes of the games. It can be seen that although it is not possible to linearly separate the two classes using the first three components, some separation can be observed between the two classes.
 <!-- [PCA Visualization](/pca_visualization.html) -->
 {% include /pca_visualization.html %}
+
+In our midterm checkpoint, we were only using team statistics from team1. However, we determined that it would be more beneficial to use the difference between team1 and team2 statistics as features as opposed to relying on only a single team's set of season statistics. This is because the difference between the two teams' statistics will provide more information about the game than the statistics of a single team. Therefore, the difference between the two teams' average points per game will provide more information about the outcome of the game than the average points per game of a single team.
 
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
 
 | Model                          | Accuracy                | F-1 Score   |
 | ------------------------------ | ----------------------- |-------------|
-| Gaussian Naiver Bayes          | 62.7 ± 0.5%             | 63.6 ± 0.6% |
-| Logistic Regression            | 62.7 ± 0.6%             | 63.6 ± 0.7% |
-| Support Vector Machine         | 62.8 ± 0.4%             | 64.7 ± 0.5% |
+| Gaussian Naiver Bayes          | 73.7 ± 0.5%             | 73.8 ± 0.3% |
+| Logistic Regression            | 73.6 ± 0.6%             | 73.7 ± 0.7% |
+| Support Vector Machine         | 72.8 ± 0.4%             | 72.9 ± 0.5% |
 
-Based on the data presented in the table, it is evident that all three models have produced comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
+Based on the data presented in the table, it is evident that all three models have produced somewhat comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
 <ins>Models</ins>\
 **Gaussian Naive Bayes**\
-Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 62.7 ± 0.5% and an F1 score of 0.636 ± 0.7%. Despite the relatively low values for both metrics, it is noteworthy that the similarity between them indicates that the model is not exhibiting hardly any bias and is performing consistently across all selected features.
+Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 73.7 ± 0.5% and an F1 score of 73.8 ± 0.3%. Despite the relatively low values for both metrics, it is noteworthy that the similarity between them indicates that the model is not exhibiting hardly any bias and is performing consistently across all selected features.
 
 ![Image](gnb_cm.png)
 
 <br>
 
 **Logistic Regression**\
-For our logistic regression model, we saw an accuracy of 62.7 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 63.6 ± 0.7%.
+For our logistic regression model, we saw an accuracy of 73.6 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 73.7 ± 0.7%.
 
 ![Image](lr_cm.png)
 
 <br>
 
 **Support Vector Machines**\
-As for SVM, our model has an accuracy of 62.8 ± 0.4% and an F1 score of 64.7 ± 0.5%.
+As for SVM, our model has an accuracy of 72.8 ± 0.4% and an F1 score of 72.9 ± 0.5%.
 
 ![Image](svc_cm.png)
 
 <br>
 
-While the team saw an accuracy of around 63%, several improvements can be made for the final report. Currently, the parameters of these models are not tuned meaning improvements can be seen once this is incorporated. Additionally, finding and eliminating additional bias may be possible after identifying other features to consider. Thus, for the final report, the team will look into improving these models and potentially exploring new ones.
+Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now that we have added the set of team2 tempo-free statistics, we have observed a dramatic increase in accuracy of about 73-74%. This is likely due to the fact that the difference between the two teams' statistics provides more information about the outcome of the game than the statistics of a single team. Additionally, we have observed that the accuracy of the models is relatively consistent across all three models. This indicates that the models are not exhibiting any bias and are performing consistently across all selected features. However, we are surprised to note that SVM did not perform as strongly as we had hypothesized, since SVM is the most suitable option for handling non-linearly separable datasets.
 
 ### Proposed Timeline
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
