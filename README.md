@@ -28,6 +28,10 @@ Below shows the three largest components plotted against the outcomes of the gam
 <!-- [PCA Visualization](/pca_visualization.html) -->
 {% include /pca_visualization.html %}
 
+To perform further analysis on the PCA components, we included a heat map of the contributed weights of each feature for all components. One thing that is interesting to note is that the first component has large positive weights associated with a predicted metric of how likely a team would beat the average D1 team, which makes sense since it is a general evaluation of how competitive a team would be. Another interesting observation is that PCA10 and PCA11 have large positive weights with if a team was playing home or away, which makes sense since home court advantage is a real phenomenon in sports.
+
+![Image](pca_analysis.png)
+
 In our midterm checkpoint, we were only using team statistics from team1. However, we determined that it would be more beneficial to use the difference between team1 and team2 statistics as features as opposed to relying on only a single team's set of season statistics. This is because the difference between the two teams' statistics will provide more information about the game than the statistics of a single team. Therefore, the difference between the two teams' average points per game will provide more information about the outcome of the game than the average points per game of a single team.
 
 In addition, in our midterm checkpoint, we did not normalize our statistics, which negatively impacted the performance of our models since it is important to normalize the data before training. Therefore, we used scikit's StandardScaler to normalize our data before training our models.
