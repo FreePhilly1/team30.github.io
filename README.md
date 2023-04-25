@@ -30,26 +30,28 @@ Below shows the three largest components plotted against the outcomes of the gam
 
 In our midterm checkpoint, we were only using team statistics from team1. However, we determined that it would be more beneficial to use the difference between team1 and team2 statistics as features as opposed to relying on only a single team's set of season statistics. This is because the difference between the two teams' statistics will provide more information about the game than the statistics of a single team. Therefore, the difference between the two teams' average points per game will provide more information about the outcome of the game than the average points per game of a single team.
 
+In addition, in our midterm checkpoint, we did not normalize our statistics, which negatively impacted the performance of our models since it is important to normalize the data before training. Therefore, we used scikit's StandardScaler to normalize our data before training our models.
+
 To evaluate our models' performance, we utilized a confusion matrix and obtained their corresponding accuracy and F-1 score values, as presented below:
 
 | Model                          | Accuracy                | F-1 Score   |
 | ------------------------------ | ----------------------- |-------------|
-| Gaussian Naiver Bayes          | 73.7 ± 0.5%             | 73.8 ± 0.3% |
-| Logistic Regression            | 73.6 ± 0.6%             | 73.7 ± 0.7% |
+| Gaussian Naive Bayes           | 74.8 ± 0.5%             | 74.9 ± 0.3% |
+| Logistic Regression            | 74.5 ± 0.6%             | 74.6 ± 0.7% |
 | Support Vector Machine         | 72.8 ± 0.4%             | 72.9 ± 0.5% |
 
 Based on the data presented in the table, it is evident that all three models have produced somewhat comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
 <ins>Models</ins>\
 **Gaussian Naive Bayes**\
-Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 73.7 ± 0.5% and an F1 score of 73.8 ± 0.3%. Despite the relatively low values for both metrics, it is noteworthy that the similarity between them indicates that the model is not exhibiting hardly any bias and is performing consistently across all selected features.
+Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 73.7 ± 0.5% and an F1 score of 73.8 ± 0.3%. We have attempted to tune the Gaussian Naive Bayes model by adjusting the priors, but we have observed that the model performs best when the priors the default 0.5, 0.5 values. This is because the dataset of predicting game outcomes is balanced, so the default priors are the most suitable for the dataset.
 
 ![Image](gnb_cm.png)
 
 <br>
 
 **Logistic Regression**\
-For our logistic regression model, we saw an accuracy of 73.6 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 73.7 ± 0.7%.
+For our logistic regression model, we saw an accuracy of 73.6 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 73.7 ± 0.7%. To obtain these results, we performed a grid search to find the optimal hyperparameters for our model. We found that the optimal hyperparameters for our model were a C value of 0.01 and a penalty of l2. We also found that the model performed best when the solver was set to sag. This is because sag is optimized for large datasets, which is the case for our dataset.
 
 ![Image](lr_cm.png)
 
@@ -62,7 +64,7 @@ As for SVM, our model has an accuracy of 72.8 ± 0.4% and an F1 score of 72.9 ±
 
 <br>
 
-Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now that we have added the set of team2 tempo-free statistics, we have observed a dramatic increase in accuracy of about 73-74%. This is likely due to the fact that the difference between the two teams' statistics provides more information about the outcome of the game than the statistics of a single team. Additionally, we have observed that the accuracy of the models is relatively consistent across all three models. This indicates that the models are not exhibiting any bias and are performing consistently across all selected features. However, we are surprised to note that SVM did not perform as strongly as we had hypothesized, since SVM is the most suitable option for handling non-linearly separable datasets.
+Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now that we have added the set of team2 tempo-free statistics, we have observed a dramatic increase in accuracy of about 75%, with our highest performing model being Gaussian Naive Bayes' accuracy of 74.8%. This is due to the fact that we had normalized our features and the difference between the two teams' statistics provides more information about the outcome of the game than the statistics of a single team. Additionally, we have observed that the accuracy of the models is relatively consistent across all three models. This indicates that the models are not exhibiting any bias and are performing consistently across all selected features. However, we are surprised to note that SVM did not perform as strongly as we had hypothesized, since SVM is the most suitable option for handling non-linearly separable datasets.
 
 ### Proposed Timeline
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
