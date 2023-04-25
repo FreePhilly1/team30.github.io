@@ -41,8 +41,8 @@ To evaluate our models' performance, we utilized a confusion matrix and obtained
 | Model                          | Accuracy                | F-1 Score   |
 | ------------------------------ | ----------------------- |-------------|
 | Gaussian Naive Bayes           | 74.8 ± 0.5%             | 74.9 ± 0.3% |
-| Logistic Regression            | 74.5 ± 0.6%             | 74.6 ± 0.7% |
-| Support Vector Machine         | 72.8 ± 0.4%             | 72.9 ± 0.5% |
+| Logistic Regression            | 75.0 ± 0.2%             | 75.1 ± 0.4% |
+| Support Vector Machine         | 74.6 ± 0.3%             | 74.2 ± 0.1% |
 
 Based on the data presented in the table, it is evident that all three models have produced somewhat comparable accuracy and F-1 scores, which indicates satisfactory performance for our specific use case. However, it should be noted that the efficacy of each model cannot be generalized, as they have their unique strengths and limitations. For instance, we have observed that Gaussian Naive Bayes and Logistic Regression are computationally efficient and straightforward to implement. On the other hand, Support Vector Machines are the most suitable option for handling non-linearly separable datasets. However, SVMs are computationally expensive and comparatively more complex than the other two models.
 
@@ -56,20 +56,21 @@ Using the Gaussian Naive Bayes approach, we achieved an accuracy rate of 74.8 ±
 <br>
 
 **Logistic Regression**\
-For our logistic regression model, we saw an accuracy of 74.5 ± 0.6% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 74.6 ± 0.7%. To obtain these results, we performed a grid search to find the optimal hyperparameters for our model. We found that the optimal hyperparameters for our model were a C value of 0.01 and a penalty of l2. We also found that the model performed best when the solver was set to sag. This is because sag is optimized for large datasets, which is the case for our dataset.
+For our logistic regression model, we saw an accuracy of 75.0 ± 0.2% when predicting the outcome of randomly sampled games. Additionally, the model showed an F1 value of 75.1 ± 0.4%. Although we performed a grid search across various hyperparameters, we observed that the highest performing model actually used the default parameters with the max iterations set to 1000.
 
 ![Image](lr_cm.png)
 
 <br>
 
 **Support Vector Machines**\
-As for SVM, our model has an accuracy of 72.8 ± 0.4% and an F1 score of 72.9 ± 0.5%.
+As for SVM, our model has an accuracy of 74.6 ± 0.3% and an F1 score of 74.2 ± 0.1%. This is surprising since that SVM is the most suitable option for handling non-linearly separable datasets. We have attempted to tune the SVM model through pipelining and bagging, but we have observed that the default model performs the best.
 
 ![Image](svc_cm.png)
 
 <br>
 
-Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now that we have added the set of team2 tempo-free statistics, we have observed a dramatic increase in accuracy of about 75%, with our highest performing model being Gaussian Naive Bayes' accuracy of 74.8%. This is due to the fact that we had normalized our features and the difference between the two teams' statistics provides more information about the outcome of the game than the statistics of a single team. Additionally, we have observed that the accuracy of the models is relatively consistent across all three models. This indicates that the models are not exhibiting any bias and are performing consistently across all selected features. However, we are surprised to note that SVM did not perform as strongly as we had hypothesized, since SVM is the most suitable option for handling non-linearly separable datasets.
+### Conclusion
+Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now that we have added the set of team2 tempo-free statistics and normalized our data, we have observed a dramatic increase in accuracy of about 75%, with our highest performing model being Logistic Regression's accuracy of 75.0%. Overall, we have found that the simple and computationally efficient discriminitive models performed the best. However, we have observed that the accuracy of the models is relatively consistent across all three models, which indicates that the models are not exhibiting any bias and are performing consistently across all selected features. We were initially surprised to note that SVM did not perform as strongly as we had hypothesized, since SVM is the most suitable option for handling non-linearly separable datasets. However, this seems to make sense since the dataset is *relatively* linearly separable, as shown in the PCA visualization. In the future, we would like to explore other models such as Random Forests and Neural Networks to see if we can achieve a higher accuracy. Additionally, we would like to explore other methods of preprocessing the data, such as using a different number of PCA components or using a different method of dimensionality reduction.
 
 ### Proposed Timeline
 [Link to Gantt Chart](https://www.dropbox.com/s/cof5fgvn9mwrexg/GanttChart.xlsx?dl=0)
@@ -79,11 +80,11 @@ Initially at the midterm checkpoint, the team saw an accuracy of around 63%. Now
 
 | Contributor                    | Task                                                                     |
 |--------------------------------|--------------------------------------------------------------------------|
-| Alvin Fabrio                   | Managed team logistics, created Gantt chart, and assisted members in performing their tasks. Prepared the presentation and one of the members that performed it. Contributed to the midterm report by conducting analysis on the output of the utilized models and generated the results and discussions.                |
-| Phillip Kim                    | Wrote the introduction/background and problem definition. Researched articles to provide details about the background of the NCAA and statistics of already existing predictive models for the sport. Contributed to the midterm report by writing the results/discussions and generating the confusion matrices.                               |
-| Jerred Chen                    | Provided the techniques to train our model and methods for data classification. Also went in depth about the details of the potential results, discussing how we will be able to measure the accuracy of our model. Contributed to the midterm report by writing the jupyter notebook to train the 3 different models.                 |
-| Jun Yi Chuah                   | Researched many of the articles used in the background and problem definition. Also assisted with writing the potential results and discussion with the researched articles. Contributed to the midterm report by creating the PCA visualization and embedding it in the report. Also helped write portions of the results/discussion.                                              |
-| Alexa Hanna                    | Created the contribution table and powerpoint presentation. Filled in each member’s contribution within the table and also filled in most of the information within the presentation. Also one of the presenters for the proposal video. Contributed to the midterm report by assisting with data collection and writing the data collection section.
+| Alvin Fabrio                   | Managed team logistics, created Gantt chart, and assisted members in performing their tasks. Prepared the presentation and one of the members that performed it. Contributed to the midterm report by conducting analysis on the output of the utilized models and generated the results and discussions. Performed hyperparameter tuning and improving performance for SVM.                |
+| Phillip Kim                    | Wrote the introduction/background and problem definition. Researched articles to provide details about the background of the NCAA and statistics of already existing predictive models for the sport. Contributed to the midterm report by writing the results/discussions and generating the confusion matrices. Performed deeper analysis of how to improve the models and dataset using PCA.                              |
+| Jerred Chen                    | Provided the techniques to train our model and methods for data classification. Also went in depth about the details of the potential results, discussing how we will be able to measure the accuracy of our model. Contributed to the midterm report by writing the jupyter notebook to train the 3 different models. Performed feature engineering to improve the dataset and subsequently model performances.                 |
+| Jun Yi Chuah                   | Researched many of the articles used in the background and problem definition. Also assisted with writing the potential results and discussion with the researched articles. Contributed to the midterm report by creating the PCA visualization and embedding it in the report. Also helped write portions of the results/discussion. Improved the performance of logistic regression and created a heatmap of the PCA loadings.                                             |
+| Alexa Hanna                    | Created the contribution table and powerpoint presentation. Filled in each member’s contribution within the table and also filled in most of the information within the presentation. Also one of the presenters for the proposal video. Contributed to the midterm report by assisting with data collection and writing the data collection section. Created the presentation and video for the final report.
 
 ### References
 [1] R. P. Bunker and F. Thabtah, “A machine learning framework for sport result prediction,” Applied Computing and Informatics, vol. 15, no. 1, pp. 27–33, Jan. 2019, doi: https://doi.org/10.1016/j.aci.2017.09.005.
